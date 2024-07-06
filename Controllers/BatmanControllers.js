@@ -152,7 +152,7 @@ export const UploadDp = async (req, res) => {
     try {
         const batman = await batmanModel.findByIdAndUpdate({ _id: req.user._id }, { DP: path })
 
-        res.json({ Msg: `DP updated for ${batman.Name}` })
+        res.json({ Msg: `DP updated for ${batman.Name}`, Lbatman: [batman] })
 
     } catch (error) {
         console.log(error);
@@ -213,6 +213,15 @@ export const GetAllBatmans = async (req, res) => {
 
         res.json({ Token: req.cookies.token, Allbatmans: allbatmans })
 
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const Getmydetails = async (req, res) => {
+    try {
+        const me = await batmanModel.findById({ _id: req.user._id })
+        res.json([me])
     } catch (error) {
         console.log(error);
     }
