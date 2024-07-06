@@ -208,12 +208,12 @@ export const EditPost = (req, res) => {
 
     const { postid } = req.params
     const file = req.file
-    const { caption } = req.body
+    const { newcaption } = req.body
 
     postModel.findById({ _id: postid })
         .then(targetpost => {
 
-            targetpost.Caption = caption
+            targetpost.Caption = newcaption
 
             targetpost.Img = `http://localhost:9000/Uploads/${file.filename}`
 

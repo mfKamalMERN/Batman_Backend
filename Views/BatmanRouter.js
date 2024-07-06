@@ -1,5 +1,5 @@
 import express from 'express'
-import { EditName, FollowBatman, GetBatmanDetails, GetMyFollowers, GetMyFollowings, Login, Logout, Register, UploadDp } from '../Controllers/BatmanControllers.js'
+import { EditName, FollowBatman, GetAllBatmans, GetBatmanDetails, GetMyFollowers, GetMyFollowings, Login, Logout, Register, UploadDp } from '../Controllers/BatmanControllers.js'
 import { VerifyToken } from '../VerifyToken/VerifyToken.js'
 import { LoginValidation, RegisterValidation } from '../Validations/batmanValidations.js'
 import { upload } from '../Multer/multer.js'
@@ -26,3 +26,6 @@ batmanRouter.put('/editname', VerifyToken, EditName)
 batmanRouter.get('/getmyfollowings/:batmanid', VerifyToken, GetMyFollowings)
 
 batmanRouter.get('/getmyfollowers/:batmanid', VerifyToken, GetMyFollowers)
+
+
+batmanRouter.get('/allbatmans', VerifyToken, GetAllBatmans)

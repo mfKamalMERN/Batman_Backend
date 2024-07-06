@@ -206,3 +206,14 @@ export const EditName = async (req, res) => {
         console.log(error);
     }
 }
+
+export const GetAllBatmans = async (req, res) => {
+    try {
+        const allbatmans = await batmanModel.find()
+
+        res.json({ Token: req.cookies.token, Allbatmans: allbatmans })
+
+    } catch (error) {
+        console.log(error);
+    }
+}
