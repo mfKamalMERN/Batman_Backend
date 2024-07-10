@@ -13,7 +13,7 @@ app.use(express.static('Public'))
 app.use(express.json())
 
 app.use(cors({
-    origin: [`http://localhost:3000`, `http://localhost:3000/home`, `http://localhost:3000/myprofile/:bid`, `https://batman-frontend-pi.vercel.app`],
+    origin: [`http://localhost:3000`, `https://batman-frontend-pi.vercel.app/home`, `http://localhost:3000/myprofile/:bid`, `https://batman-frontend-pi.vercel.app`],
 
     methods: [`GET`, `POST`, `PUT`, `DELETE`],
 
