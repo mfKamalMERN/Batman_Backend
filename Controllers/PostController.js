@@ -34,7 +34,7 @@ export const CreatePost = (req, res) => {
     const { caption } = req.body
     const file = req.file
 
-    postModel.create({ Caption: caption, Img: `http://localhost:9000/Uploads/${file.filename}`, Owner: luser })
+    postModel.create({ Caption: caption, Img: `https://batman-backend.onrender.com/Uploads/${file.filename}`, Owner: luser })
         .then(async createdPost => {
             try {
                 const owner = await batmanModel.findById({ _id: luser })
@@ -215,7 +215,7 @@ export const EditPost = (req, res) => {
 
             targetpost.Caption = newcaption
 
-            targetpost.Img = `http://localhost:9000/Uploads/${file.filename}`
+            targetpost.Img = `https://batman-backend.onrender.com/Uploads/${file.filename}`
 
             targetpost.save()
 

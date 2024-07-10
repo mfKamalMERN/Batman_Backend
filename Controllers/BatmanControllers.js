@@ -148,7 +148,7 @@ export const GetBatmanDetails = (req, res) => {
 
 export const UploadDp = async (req, res) => {
     const file = req.file
-    const path = `http://localhost:9000/Uploads/${file.filename}`
+    const path = `https://batman-backend.onrender.com/Uploads/${file.filename}`
     try {
         const batman = await batmanModel.findByIdAndUpdate({ _id: req.user._id }, { DP: path })
 
