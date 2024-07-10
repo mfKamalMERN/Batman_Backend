@@ -226,3 +226,22 @@ export const Getmydetails = async (req, res) => {
         console.log(error);
     }
 }
+
+export const EditPwd = (req, res) => {
+    const { oldpwd, newpwd, confirmpwd } = req.body
+
+    batmanModel.findById({ _id: req.user._id })
+        .then(batman => {
+
+            if (batman.Password !== oldpwd) res.json({ Msg: `Old Password is incorrect`, Updated: false })
+
+            else if (newpwd !== confirmpwd) res.json({ Msg: `passwords didn't match`, Updated: false })
+
+            else {
+                batman.Password = newpwd
+                batman.save()
+                res.json({ Msg: `Password successfully updated for ${batman.Name}`, Updated: true })
+            }
+        })
+        .catch(er => console.log(er))
+}
