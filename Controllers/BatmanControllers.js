@@ -247,13 +247,13 @@ export const EditPwd = (req, res) => {
         .catch(er => console.log(er))
 }
 
-export const DeleteAccount = (req, res) => {
-    batmanModel.findByIdAndDelete({ _id: req.user._id })
-        .then(batman => {
-            for (let pid of batman.Posts) {
-                postModel.findByIdAndDelete({ _id: pid })
-            }
-            res.json({ Msg: `Account deleted for ${batman.Name}` })
-        })
-        .catch(er => console.log(er))
-}
+// export const DeleteAccount = (req, res) => {
+//     batmanModel.findByIdAndDelete({ _id: req.user._id })
+//         .then(batman => {
+//             for (let pid of batman.Posts) {
+//                 postModel.findByIdAndDelete({ _id: pid })
+//             }
+//             res.json({ Msg: `Account deleted for ${batman.Name}` })
+//         })
+//         .catch(er => console.log(er))
+// }
