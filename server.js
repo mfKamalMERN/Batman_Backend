@@ -13,7 +13,7 @@ app.use(express.static('Public'))
 app.use(express.json())
 
 app.use(cors({
-    origin: [`http://localhost:3000`, `https://batman-frontend-pi.vercel.app/home`, `https://batman-frontend-pi.vercel.app/myprofile/:bid`, `https://batman-frontend-pi.vercel.app`, `https://batman-frontend-pi.vercel.app/register`, `https://batman-frontend-pi.vercel.app/home/:batmanid`, `https://batman-frontend-pi.vercel.app/allbatmans`, `http://localhost:3000/home`, `http://localhost:3000/home/:batmanid`, `http://localhost:3000/myprofile/:bid`, `http://localhost:3000/register`, `http://localhost:3000/allbatmans`,`http://localhost:3000/:filename`],
+    origin: [`http://localhost:3001`, `https://batman-frontend-pi.vercel.app/home`, `https://batman-frontend-pi.vercel.app/myprofile/:bid`, `https://batman-frontend-pi.vercel.app`, `https://batman-frontend-pi.vercel.app/register`, `https://batman-frontend-pi.vercel.app/home/:batmanid`, `https://batman-frontend-pi.vercel.app/allbatmans`, `http://localhost:3001/home`, `http://localhost:3001/home/:batmanid`, `http://localhost:3001/myprofile/:bid`, `http://localhost:3001/register`, `http://localhost:3001/allbatmans`,`http://localhost:3001/:filename`],
 
     methods: [`GET`, `POST`, `PUT`, `DELETE`],
 
@@ -28,6 +28,6 @@ ConnectDB()
 app.use('/', batmanRouter)
 app.use('/', postRouter)
 
-const port = 9000
+const port = 9050
 
 app.listen(port, () => console.log(`Server running at Port ${port}`))
