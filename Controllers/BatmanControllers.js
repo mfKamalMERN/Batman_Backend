@@ -1,7 +1,7 @@
 import { validationResult } from "express-validator";
 import batmanModel from "../Models/batmanmodel.js";
 import jwt from 'jsonwebtoken'
-import { postModel } from "../Models/postmodel.js";
+// import { postModel } from "../Models/postmodel.js";
 
 export const Register = async (req, res) => {
     const { name, age, email, pwd } = req.body
@@ -247,13 +247,13 @@ export const EditPwd = (req, res) => {
         .catch(er => console.log(er))
 }
 
-export const DeleteAccount = (req, res) => {
-    batmanModel.findByIdAndDelete({ _id: req.user._id })
-        .then(batman => {
-            for (let pid of batman.Posts) {
-                postModel.findByIdAndDelete({ _id: pid })
-            }
-            res.json({ Msg: `Account deleted for ${batman.Name}` })
-        })
-        .catch(er => console.log(er))
-}
+// export const DeleteAccount = (req, res) => {
+//     batmanModel.findByIdAndDelete({ _id: req.user._id })
+//         .then(async batman => {
+//             for (let pid of batman.Posts) {
+//                 await postModel.findByIdAndDelete({ _id: pid })
+//             }
+//             res.json({ Msg: `Account deleted for ${batman.Name}` })
+//         })
+//         .catch(er => console.log(er))
+// }
